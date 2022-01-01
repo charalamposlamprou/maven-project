@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    parameters {
-         string(name: 'tomcat_dev', defaultValue: 'localhost:8090', description: 'Staging Server')
-         string(name: 'tomcat_prod', defaultValue: 'localhost:9090', description: 'Production Server')
-    }
-
     triggers {
          pollSCM('* * * * *')
      }
@@ -27,13 +22,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "scp -i /var/lib/jenkins/.ssh/id_rsa **/target/*.war ubuntu@${params.tomcat_dev}:/opt/tomcat/webapp"
+                        sh "cp **/target/*.war /opt/tomcat/webapp"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "scp -i /var/lib/jenkins/.ssh/id_rsa **/target/*.war ubuntu@${params.tomcat_prod}:/opt/tomcat-prod/webapp"
+                        sh "cp **/target/*.war /opt/tomcat-prod/webapp"
                     }
                 }
             }
