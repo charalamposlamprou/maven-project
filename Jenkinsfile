@@ -34,6 +34,15 @@ stages{
 
                         sh "cp **/target/*.war /opt/tomcat-prod/webapps"
                     }
+                    post {
+                        success {
+                          echo 'Code deployed to Production.'
+                        }
+
+                        failure {
+                          echo ' Deployment failed.'
+                        }
+                    }
                 }
             }
         }
