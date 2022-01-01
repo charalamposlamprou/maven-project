@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    parameters {
-         string(name: 'tomcat_dev', defaultValue: 'localhost', description: 'Staging Server')
-         string(name: 'tomcat_prod', defaultValue: 'localhost', description: 'Production Server')
-    }
-
     triggers {
          pollSCM('* * * * *')
      }
@@ -27,13 +22,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "cp **/target/*.war ubuntu@${params.tomcat_dev}:/opt/tomcat/webapps"
+                        sh "cp **/target/*.war /opt/tomcat/webapps"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "cp **/target/*.war ubuntu@${params.tomcat_dev}:/opt/tomcat-prod/webapps"
+                        sh "cp **/target/*.war /opt/tomcat-prod/webapps"
                     }
                 }
             }
