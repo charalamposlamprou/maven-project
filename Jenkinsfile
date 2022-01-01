@@ -28,6 +28,9 @@ stages{
 
                 stage ("Deploy to Production"){
                     steps {
+                        timeout(time:5, unit:'DAYS'){
+                        input message:'Approve PRODUCTION Deployment?'
+                        }
 
                         sh "cp **/target/*.war /opt/tomcat-prod/webapps"
                     }
