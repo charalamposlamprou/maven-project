@@ -22,7 +22,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "cp **/target/*.war /opt/tomcat/webapps"
+                        sh "sudo cp **/target/*.war /opt/tomcat/webapps"
                     }
                 }
 
@@ -32,7 +32,7 @@ stages{
                         input message:'Approve PRODUCTION Deployment?'
                         }
 
-                        sh "cp **/target/*.war /opt/tomcat-prod/webapps"
+                        sh "sudo cp **/target/*.war /opt/tomcat-prod/webapps"
                     }
                     post {
                         success {
