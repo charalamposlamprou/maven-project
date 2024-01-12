@@ -29,8 +29,8 @@ stages{
         nexusVersion: 'nexus3',
         protocol: 'http',
         nexusUrl: NEXUS_REPO_URL,
-        groupId: 'com.example',
-        version: version,
+        groupId: pom.groupId,
+        version: pom.version,
         repository: 'maven-project',
         credentialsId: NEXUS_CREDENTIALS,
         artifacts: [
