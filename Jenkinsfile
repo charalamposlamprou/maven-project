@@ -25,18 +25,21 @@ stages{
 
     stage('Deploy to Nexus') {
             steps {
-                script {
-                    def nexusArtifactUploader = NexusArtifactUploader.fromMaven()
-                    nexusArtifactUploader.credentialsId = NEXUS_CREDENTIALS
-                    nexusArtifactUploader.repositoryUrl = NEXUS_REPO_URL
-                    nexusArtifactUploader.artifacts = [
-                        // Specify the file(s) to upload
-                        [artifactId: 'your-artifact-id', classifier: '', file: '/var/lib/jenkins/workspace/maven-project/webapp/target/webapp.war']
-                    ]
-
-                    // Perform the upload
-                    nexusArtifactUploader.deploy()
-                }
+                nexusArtifactUploader(
+        nexusVersion: 'nexus3',
+        protocol: 'http',
+        nexusUrl: NEXUS_REPO_URL,
+        groupId: 'com.example',
+        version: version,
+        repository: 'maven-project',
+        credentialsId: NEXUS_CREDENTIALS,
+        artifacts: [
+            [artifactId: maven-project,
+             classifier: '',
+             file: 'webapp' + version + '.war',
+             type: 'war']
+        ]
+     )
             }
         }
 
