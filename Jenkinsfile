@@ -1,3 +1,7 @@
+@Library('your-shared-library') _
+
+import org.jenkinsci.plugins.nexus.pipeline.NexusArtifactUploader
+
 pipeline {
     agent any
 
