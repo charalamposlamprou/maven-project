@@ -2,7 +2,7 @@ pipeline {
     agent any
 
      environment {
-        NEXUS_CREDENTIALS = credentials('c165e35e-4b2c-4e0a-874f-5004d5750e8e')
+        NEXUS_CREDENTIALS = credentials('nexuslogin')
         NEXUS_REPO_URL = 'http://172.16.240.128:8083/repository/maven-project/'
     }
 
