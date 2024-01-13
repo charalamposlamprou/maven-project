@@ -33,7 +33,7 @@ stages{
                             type: 'war'
                         ]
                     ], 
-                        credentialsId: 'nexuslogin', 
+                        credentialsId: NEXUS_CREDENTIALS, 
                         groupId: 'com.example.maven-project', 
                         nexusUrl: '172.16.240.128:8083', 
                         nexusVersion: 'nexus3', 
