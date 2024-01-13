@@ -3,6 +3,7 @@ pipeline {
 
      environment {
         NEXUS_CREDENTIALS = credentials('nexuslogin')
+        NEXUS_REPO_URL = '172.16.240.128:8083' 
     }
 
     triggers {
@@ -35,7 +36,7 @@ stages{
                     ], 
                         credentialsId: NEXUS_CREDENTIALS, 
                         groupId: 'com.example.maven-project', 
-                        nexusUrl: '172.16.240.128:8083', 
+                        nexusUrl: NEXUS_REPO_URL, 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'maven-project', 
