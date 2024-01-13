@@ -29,7 +29,7 @@ stages{
                         [
                             artifactId: 'maven-project', 
                             classifier: '', 
-                            file: 'target/webapp-1.0-SNAPSHOT.war', 
+                            file: 'target/webapp.war', 
                             type: 'war'
                         ]
                     ], 
