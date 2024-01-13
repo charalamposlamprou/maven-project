@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-     environment {
-        NEXUS_CREDENTIALS = credentials('nexuslogin')
-        NEXUS_REPO_URL = '172.16.240.128:8083' 
-    }
-
     triggers {
          pollSCM('* * * * *')
      }
@@ -34,9 +29,9 @@ stages{
                             type: 'war'
                         ]
                     ], 
-                        credentialsId: NEXUS_CREDENTIALS, 
+                        credentialsId: 'nexuslogin', 
                         groupId: 'com.example.maven-project', 
-                        nexusUrl: NEXUS_REPO_URL, 
+                        nexusUrl: '172.16.240.128:8083', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'maven-project', 
