@@ -3,7 +3,6 @@ pipeline {
 
      environment {
         NEXUS_CREDENTIALS = credentials('nexuslogin')
-        NEXUS_REPO_URL = 'http://172.16.240.128:8083/repository/maven-project/'
     }
 
     triggers {
@@ -30,15 +29,16 @@ stages{
                         [
                             artifactId: 'maven-project', 
                             classifier: '', 
-                            file: 'target/maven-project-1.0-SNAPSHOT.war', 
+                            file: 'target/webapp-1.0-SNAPSHOT.war', 
                             type: 'war'
                         ]
                     ], 
                         credentialsId: 'nexuslogin', 
                         groupId: 'com.example.maven-project', 
                         nexusUrl: 'http://172.16.240.128:8083/', 
-                        nexusVersion: 'nexus3', protocol: 'http', 
-                        repository: 'http://172.16.240.128:8083/repository/maven-project/', 
+                        nexusVersion: 'nexus3', 
+                        protocol: 'http', 
+                        repository: 'http://172.16.240.128:8083/repository/maven-project', 
                         version: '1.0-SNAPSHOT'
                 
             }
