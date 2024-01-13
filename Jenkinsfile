@@ -25,21 +25,23 @@ stages{
 
     stage('Deploy to Nexus') {
             steps {
-                nexusArtifactUploader(
-        nexusVersion: 'nexus3',
-        protocol: 'http',
-        nexusUrl: NEXUS_REPO_URL,
-        groupId: com.example.maven-project,
-        version: 1.0-SNAPSHOT,
-        repository: 'maven-project',
-        credentialsId: NEXUS_CREDENTIALS,
-        artifacts: [
-            [artifactId: maven-project,
-             classifier: '',
-             file: 'webapp' + version + '.war',
-             type: 'war']
-        ]
-     )
+                script {
+                    nexusArtifactUploader(
+                        nexusVersion: 'nexus3',
+                        protocol: 'http',
+                        nexusUrl: NEXUS_REPO_URL,
+                        groupId: 'com.example.maven-project',
+                        version: '1.0-SNAPSHOT',
+                        repository: 'maven-project',
+                        credentialsId: NEXUS_CREDENTIALS,
+                        artifacts: [
+                            [artifactId: 'maven-project',
+                             classifier: '',
+                             file: "webapp${version}.war",
+                             type: 'war']
+                        ]
+                    )
+                }
             }
         }
 
