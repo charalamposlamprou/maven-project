@@ -38,7 +38,7 @@ stages{
                         nexusUrl: 'http://172.16.240.128:8083/', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
-                        repository: 'http://172.16.240.128:8083/repository/maven-project', 
+                        repository: 'maven-project', 
                         version: '1.0-SNAPSHOT'
                 
             }
