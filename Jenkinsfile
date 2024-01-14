@@ -38,6 +38,15 @@ stages{
                         version: '1.0-SNAPSHOT'
                 
             }
+            post {
+                        success {
+                          echo 'Artifacts deployed to Nexus.'
+                        }
+
+                        failure {
+                          echo 'Artifacts failed to be deployed to Nexus.'
+                        }
+                    }
         }
 
         stage ('Deployments'){
