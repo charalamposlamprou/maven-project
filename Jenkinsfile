@@ -17,15 +17,7 @@ stages{
                 }
             }
         }
-                post {
-                        success {
-                          echo 'Artifact deployed to Nexus succesfully.'
-                        }
-
-                        failure {
-                          echo 'Artifacts failed to be deployed to Nexus.'
-                        }
-                    }
+              
 
     stage('Deploy to Nexus') {
             steps {
@@ -48,6 +40,16 @@ stages{
                 
             }
         }
+
+              post {
+                        success {
+                          echo 'Artifact deployed to Nexus succesfully.'
+                        }
+
+                        failure {
+                          echo 'Artifacts failed to be deployed to Nexus.'
+                        }
+                    }
 
         stage ('Deployments'){
             parallel{
