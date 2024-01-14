@@ -38,10 +38,6 @@ stages{
                         version: '1.0-SNAPSHOT'
                 
             }
-        post {
-                success {
-                        echo 'Artifacts deployed successfully to Nexus'
-                }
         }
 
         stage ('Deployments'){
