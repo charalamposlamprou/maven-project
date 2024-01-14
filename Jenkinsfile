@@ -16,9 +16,8 @@ stages{
                     archiveArtifacts artifacts: '**/target/*.war'
                 }
             }
-        }
-              
-
+        }          
+    }
     stage('Deploy to Nexus') {
             steps {
                 
