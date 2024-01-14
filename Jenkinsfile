@@ -17,7 +17,7 @@ stages{
                 }
             }
         }          
-    }
+    
     stage('Deploy to Nexus') {
             steps {
                 
