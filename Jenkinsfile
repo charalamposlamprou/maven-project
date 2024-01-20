@@ -31,7 +31,7 @@ stages{
                     ], 
                         credentialsId: 'nexuslogin', 
                         groupId: 'com.example.maven-project', 
-                        nexusUrl: '172.16.240.128:8083', 
+                        nexusUrl: '192.168.146.132:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'maven-project', 
